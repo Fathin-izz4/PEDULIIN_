@@ -142,7 +142,7 @@ def tambah_laporan():
     # Memeriksa kategori laporan
     kategori_valid = [
         "Sampah Berserakan",
-        "Saluran Air tersumbat",
+        "Saluran Air Tersumbat",
         "Fasilitas Rusak",
         "Penghijauan",
         "Lainnya"

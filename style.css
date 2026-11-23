@@ -1,0 +1,525 @@
+body {
+    background-color: #f0f7f4;
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+h1 {
+    color: #167d56;
+}
+
+h2 {
+    color: #245c48;
+}
+
+p {
+    color: #555555;
+}
+
+button {
+    background-color: #167d56;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    color: #167d56;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555555;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #167d56;
+}
+.report-section {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid #eeeeee;
+}
+
+.report-section h2 {
+    margin-bottom: 10px;
+}
+
+.report-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.report-section label {
+    font-weight: bold;
+    color: #245c48;
+}
+
+.report-section input,
+.report-section select,
+.report-section textarea {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.report-section textarea {
+    resize: vertical;
+}
+
+.report-section button {
+    margin-top: 10px;
+}
+
+/* Tampilan kartu laporan */
+.kartu-laporan {
+    background-color: #f0f7f4;
+    border-left: 5px solid #167d56;
+    padding: 18px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.kartu-laporan h3 {
+    color: #167d56;
+    margin-top: 0;
+    text-transform: capitalize;
+}
+
+.kartu-laporan p {
+    color: #555555;
+    line-height: 1.6;
+}
+
+/* Dashboard Statistik */
+.dashboard-section {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid #eeeeee;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.dashboard-card {
+    background-color: #f0f7f4;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #167d56;
+}
+
+.dashboard-card h3 {
+    color: #245c48;
+    font-size: 15px;
+}
+
+.dashboard-card p {
+    color: #167d56;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+/* Jarak antarbagian halaman */
+.dashboard-section {
+    margin-bottom: 60px;
+    padding-bottom: 35px;
+    border-bottom: 2px solid #eeeeee;
+}
+
+.report-section {
+    margin-top: 40px;
+    padding-top: 35px;
+}
+
+/* Fitur Lacak Laporan */
+.tracking-section {
+    margin-top: 40px;
+    padding: 30px 0;
+    border-top: 2px solid #eeeeee;
+}
+
+.tracking-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.tracking-form input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.tracking-form button {
+    padding: 12px 20px;
+}
+
+#hasil-pencarian {
+    margin-top: 20px;
+}
+.pencarian-laporan {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.pencarian-laporan input {
+    width: 350px;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+}
+/* POP-UP DETAIL LAPORAN */
+.detail-popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.detail-content {
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.detail-content h2 {
+    color: #167d56;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.tutup-detail {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background-color: #e8f3ed;
+    color: #167d56;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#isi-detail p {
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+#isi-detail img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+/* Tampilan Form Edit Laporan */
+#form-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#form-edit label {
+    font-weight: bold;
+    color: #245c48;
+}
+
+#form-edit input,
+#form-edit select,
+#form-edit textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+#form-edit textarea {
+    resize: vertical;
+}
+
+#form-edit button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #167d56;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#form-edit button:hover {
+    background-color: #105c3e;
+}
+
+#pratinjau-edit-foto img {
+    width: 150px;
+    max-height: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.info-penyimpanan {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f7f4;
+    border-radius: 12px;
+}
+
+.info-penyimpanan h3 {
+    color: #167d56;
+    margin-top: 0;
+}
+
+#teks-penyimpanan {
+    color: #555555;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.progress-penyimpanan {
+    width: 100%;
+    height: 14px;
+    background-color: #dce9e2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#bar-penyimpanan {
+    width: 0%;
+    height: 100%;
+    background-color: #16a36a;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+#ekspor-laporan {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 13px 22px;
+    background-color: #167d56;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
+
+#ekspor-laporan:hover {
+    background-color: #105c3e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.18);
+}
+
+#ekspor-laporan:active {
+    transform: scale(0.97);
+}
+/* Bagian Peta PEDULIIN */
+.peta-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f0f7f4;
+    border-radius: 12px;
+}
+
+.peta-section h3 {
+    color: #167d56;
+    margin-top: 0;
+}
+
+.peta-section p {
+    color: #555555;
+    font-size: 14px;
+}
+
+#peta-laporan {
+    width: 100%;
+    height: 400px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    z-index: 1;
+}
+/* Peta untuk memilih lokasi laporan */
+#peta-pilih-lokasi {
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#koordinat-terpilih {
+    color: #167d56;
+    font-size: 13px;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+.legenda-peta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.item-legenda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #444;
+}
+
+.titik-legenda {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.titik-legenda.menunggu {
+    background-color: #E99B32;
+}
+
+.titik-legenda.diproses {
+    background-color: #3186D9;
+}
+
+.titik-legenda.selesai {
+    background-color: #20A36B;
+}
+.filter-peta {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-peta label {
+    font-weight: bold;
+    color: #167d56;
+}
+
+.filter-peta select {
+    padding: 9px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    background-color: white;
+}
+/* Tampilan kartu laporan pada panel admin */
+#kelola-laporan .kartu-laporan {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid #dce8e1;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Jarak antar informasi */
+#kelola-laporan .kartu-laporan p {
+    margin: 8px 0;
+    line-height: 1.6;
+    color: #444444;
+}
+
+/* Foto laporan admin */
+#kelola-laporan .kartu-laporan img {
+    display: block;
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+
+/* Pilihan status */
+#kelola-laporan .kartu-laporan select {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    width: 100%;
+}
+/* Warna status laporan */
+.status-menunggu {
+    color: #d88719 !important;
+    font-weight: bold;
+}
+
+.status-diproses {
+    color: #3186d9 !important;
+    font-weight: bold;
+}
+
+.status-selesai {
+    color: #20a36b !important;
+    font-weight: bold;
+}

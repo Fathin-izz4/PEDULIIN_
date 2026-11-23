@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PEDULIIN</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS Leaflet -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- JavaScript Leaflet -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+</head>
+<body>
+<main class="container">
+<nav class="navbar">
+    <h2 class="logo">PEDULIIN.</h2>
+
+    <div class="nav-links">
+        <a href="#beranda">Beranda</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#tracking">Lacak Laporan</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#buat-laporan">Buat Laporan</a>
+    </div>
+</nav>
+
+
+<section id="dashboard" class="dashboard-section">
+    <h2>Dashboard PEDULIIN</h2>
+    <p>Ringkasan laporan lingkungan sekolah.</p>
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-card">
+            <h3>Total Laporan</h3>
+            <p id="total-laporan">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Menunggu</h3>
+            <p id="total-menunggu">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Sedang Diproses</h3>
+            <p id="total-diproses">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Selesai</h3>
+            <p id="total-selesai">0</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="tracking" class="tracking-section">
+    <h2>Lacak Laporan</h2>
+    <p>Masukkan nomor laporan untuk melihat perkembangannya.</p>
+
+    <div class="tracking-form">
+        <input
+            type="text"
+            id="nomor-pencarian"
+            placeholder="Contoh: PDL-123456"
+        >
+
+        <button type="button" id="tombol-cari">
+            Cari Laporan
+        </button>
+    </div>
+
+    <div id="hasil-pencarian"></div>
+</section>
+
+
+    <h1 id="beranda">Selamat Datang di PEDULIIN</h1>
+    <p>Platform Pelaporan Lingkungan Sekolah</p>
+    <h2 id="tentang">Kenapa PEDULIIN Dibuat?</h2>
+<ul>
+    <li>Sampah berserakan</li>
+    <li>Saluran air tersumbat</li>
+    <li>Fasilitas sekolah rusak</li>
+</ul>
+<section id="buat-laporan" class="report-section">
+
+    <h2>Buat Laporan Lingkungan</h2>
+
+    <p>
+        Laporkan permasalahan lingkungan yang kamu temukan
+        di sekolah.
+    </p>
+
+    <form id="reportForm">
+
+        <label for="kategori">
+            Kategori Permasalahan
+        </label>
+
+        <select id="kategori" required>
+    <option value="">Pilih kategori</option>
+    <option value="Sampah Berserakan">Sampah Berserakan</option>
+    <option value="Saluran Air Tersumbat">Saluran Air Tersumbat</option>
+    <option value="Fasilitas Rusak">Fasilitas Rusak</option>
+    <option value="Penghijauan">Penghijauan</option>
+    <option value="Lainnya">Lainnya</option>
+</select>
+
+        <label for="lokasi">
+            Lokasi Permasalahan
+        </label>
+
+        <input
+            type="text"
+            id="lokasi"
+            placeholder="Contoh: Depan kelas X-1"
+            required
+        >
+                <p>Pilih titik lokasi pada peta:</p>
+
+        <div id="peta-pilih-lokasi"></div>
+
+        <p id="koordinat-terpilih">
+            Belum ada titik lokasi yang dipilih.
+        </p>
+
+        <label for="deskripsi">
+            Deskripsi Laporan
+        </label>
+
+        <textarea
+            id="deskripsi"
+            rows="5"
+            placeholder="Jelaskan permasalahan yang ditemukan..."
+            required
+        ></textarea>
+
+                <label for="foto">
+            Foto Bukti Laporan
+        </label>
+
+        <input
+            type="file"
+            id="foto"
+            accept="image/*"
+        >
+        <div id="pratinjau-foto"></div>
+
+        <button type="submit">
+            Kirim Laporan
+        </button>
+
+    </form>
+
+<div id="daftar-laporan">
+    <h2>Laporan Terbaru</h2>
+    <p id="pesan-kosong">Belum ada laporan yang masuk.</p>
+</div>
+
+<section id="panel-admin">
+    <h2>Panel Admin</h2>
+    <p>Kelola status laporan lingkungan sekolah.</p>
+    <div class="info-penyimpanan">
+    <h3>Kapasitas Penyimpanan</h3>
+    <p id="teks-penyimpanan">Menghitung penyimpanan...</p>
+
+    <div class="progress-penyimpanan">
+        <div id="bar-penyimpanan"></div>
+    </div>
+</div>
+
+<button id="ekspor-laporan">
+    Unduh Data Laporan
+</button>
+
+<div class="pencarian-laporan">
+    <input
+        type="text"
+        id="cari-laporan"
+        placeholder="Cari nomor laporan atau lokasi..."
+    >
+    </div>
+    
+    <div class="filter-status">
+    <select id="filter-status">
+        <option value="semua">Semua Status</option>
+        <option value="Menunggu Penanganan">Menunggu Penanganan</option>
+        <option value="Sedang Diproses">Sedang Diproses</option>
+        <option value="Selesai">Selesai</option>
+    </select>
+</div>
+<div class="peta-section">
+    <h3>Peta Persebaran Laporan</h3>
+    <p>Lihat lokasi laporan lingkungan sekolah.</p>
+    <div id="peta-laporan"></div>
+    <div class="filter-peta">
+    <label for="filter-kategori-peta">
+        Filter Kategori Laporan:
+    </label>
+
+    <select id="filter-kategori-peta">
+    <option value="semua">Semua Kategori</option>
+    <option value="sampah">Sampah Berserakan</option>
+    <option value="saluran">Saluran Air Tersumbat</option>
+    <option value="fasilitas">Fasilitas Rusak</option>
+    <option value="penghijauan">Penghijauan</option>
+    <option value="lainnya">Lainnya</option>
+</select>
+</div>
+    <div class="legenda-peta">
+
+    <div class="item-legenda">
+        <span class="titik-legenda menunggu"></span>
+        Menunggu Penanganan
+    </div>
+
+    <div class="item-legenda">
+        <span class="titik-legenda diproses"></span>
+        Sedang Diproses
+    </div>
+
+    <div class="item-legenda">
+        <span class="titik-legenda selesai"></span>
+        Selesai
+    </div>
+
+</div>
+</div>
+<!-- Form Login Admin -->
+<div id="login-admin" class="login-admin">
+
+    <h2>Login Admin PEDULIIN</h2>
+
+    <form id="form-login-admin">
+
+        <label for="username-admin">Username</label>
+        <input
+            type="text"
+            id="username-admin"
+            placeholder="Masukkan username"
+            required
+        >
+
+        <label for="password-admin">Password</label>
+        <input
+            type="password"
+            id="password-admin"
+            placeholder="Masukkan password"
+            required
+        >
+
+        <button type="submit">
+            Login Admin
+        </button>
+
+    </form>
+
+    <p id="pesan-login"></p>
+
+    <button id="tombol-logout" type="button" style="display: none;">
+        Logout
+    </button>
+
+</div>
+<div id="kelola-laporan" style="display: none;">
+</div>
+</section>
+
+</section>
+</main>
+
+<div id="detail-popup" class="detail-popup">
+    <div class="detail-content">
+        <button id="tutup-detail" class="tutup-detail">✕</button>
+
+        <h2>Detail Laporan</h2>
+
+        <div id="isi-detail"></div>
+    </div>
+</div>
+<div id="edit-popup" class="detail-popup">
+    <div class="detail-content">
+        <button id="tutup-edit" class="tutup-detail">✕</button>
+
+        <h2>Edit Laporan</h2>
+
+        <form id="form-edit">
+            <label for="edit-kategori">Kategori</label>
+            <select id="edit-kategori" required>
+                <option value="sampah">Sampah Berserakan</option>
+                <option value="saluran">Saluran Air Tersumbat</option>
+                <option value="fasilitas">Fasilitas Rusak</option>
+                <option value="penghijauan">Penghijauan</option>
+                <option value="lainnya">Lainnya</option>
+            </select>
+
+            <label for="edit-lokasi">Lokasi</label>
+            <input type="text" id="edit-lokasi" required>
+
+            <label>Pilih Titik Lokasi pada Peta</label>
+<div id="peta-edit-lokasi" style="height: 250px;"></div>
+<p id="koordinat-edit-terpilih">
+    Pilih titik lokasi pada peta
+</p>
+
+            <label for="edit-deskripsi">Deskripsi</label>
+            <textarea id="edit-deskripsi" rows="4" required></textarea>
+
+            <label for="edit-foto">Ganti Foto</label>
+            <input type="file" id="edit-foto" accept="image/*">
+
+            <div id="pratinjau-edit-foto"></div>
+
+            <button type="submit">Simpan Perubahan</button>
+        </form>
+    </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

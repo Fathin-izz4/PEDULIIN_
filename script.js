@@ -480,9 +480,10 @@ function tampilkanLaporanTersimpan() {
 
     const daftarLaporan = document.getElementById("daftar-laporan");
 
-    const kelolaLaporan = document.getElementById("kelola-laporan");
+const kelolaLaporan = document.getElementById("kelola-laporan");
 
-    kelolaLaporan.innerHTML = "";
+daftarLaporan.innerHTML = "";
+kelolaLaporan.innerHTML = "";
 
     semuaLaporan.forEach(function(data) {
         const laporan = document.createElement("div");
@@ -506,6 +507,13 @@ tanggal.textContent = "Tanggal: " + (data.tanggal || "Tidak tersedia");
         const deskripsi = document.createElement("p");
         deskripsi.textContent = "Deskripsi: " + data.deskripsi;
 
+        const koordinat = document.createElement("p");
+koordinat.textContent =
+    "Koordinat: " +
+    (data.latitude ?? "Belum tersedia") +
+    ", " +
+    (data.longitude ?? "Belum tersedia");
+
         const status = document.createElement("p");
         status.textContent = "Status: " + data.status;
 
@@ -514,6 +522,7 @@ tanggal.textContent = "Tanggal: " + (data.tanggal || "Tidak tersedia");
         laporan.appendChild(lokasi);
         laporan.appendChild(tanggal);
         laporan.appendChild(deskripsi);
+        laporan.appendChild(koordinat);
 
 if (data.foto) {
     const gambar = document.createElement("img");
@@ -805,7 +814,16 @@ tombolEdit.addEventListener("click", function() {
     nomorLaporanEdit = data.nomor;
     const popupEdit = document.getElementById("edit-popup");
 
-    document.getElementById("edit-kategori").value = data.kategori;
+    const daftarKategori = {
+    "sampah": "Sampah Berserakan",
+    "saluran": "Saluran Air Tersumbat",
+    "fasilitas": "Fasilitas Rusak",
+    "penghijauan": "Penghijauan",
+    "lainnya": "Lainnya"
+};
+
+document.getElementById("edit-kategori").value =
+    daftarKategori[data.kategori] || data.kategori;
     document.getElementById("edit-lokasi").value = data.lokasi;
     document.getElementById("edit-deskripsi").value = data.deskripsi;
     // Mengambil koordinat lokasi lama
@@ -1101,6 +1119,8 @@ laporanEdit.deskripsi = deskripsiBaru;
     console.log("Mengirim perubahan laporan...");
     console.log("Nomor laporan:", nomorLaporanEdit);
     console.log("Koordinat baru:", latitudeEdit, longitudeEdit);
+    console.log("Kategori yang dikirim:", dataPerubahan.kategori);
+
 
     fetch(
         "http://127.0.0.1:5000/api/laporan/" +
@@ -1339,6 +1359,13 @@ kategori.textContent = "Kategori: " + data.kategori;
 
 const deskripsi = document.createElement("p");
 deskripsi.textContent = "Deskripsi: " + data.deskripsi;
+
+const koordinat = document.createElement("p");
+koordinat.textContent =
+    "Koordinat: " +
+    (data.latitude ?? "Belum tersedia") +
+    ", " +
+    (data.longitude ?? "Belum tersedia");
 
 // Menampilkan foto laporan pada popup peta
 if (data.foto) {

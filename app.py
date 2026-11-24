@@ -10,6 +10,7 @@ from werkzeug.security import check_password_hash
 
 # Membuat aplikasi Flask
 app = Flask(__name__)
+app.secret_key = os.environ.get("PEDULIIN_SECRET_KEY")
 
 # Konfigurasi keamanan session
 app.secret_key = os.environ.get("PEDULIIN_SECRET_KEY")

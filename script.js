@@ -897,12 +897,13 @@ kelolaLaporan.appendChild(adminCard);
 tampilkanLaporanTersimpan();
 
 perbaruiDashboard();
+
 function perbaruiDashboard() {
-    
-    // Menghitung jumlah seluruh laporan
+
+    // MENGHITUNG TOTAL LAPORAN
     const total = semuaLaporan.length;
 
-    // Menghitung berdasarkan status
+    // MENGHITUNG BERDASARKAN STATUS
     const menunggu = semuaLaporan.filter(function(data) {
         return data.status === "Menunggu Penanganan";
     }).length;
@@ -915,12 +916,154 @@ function perbaruiDashboard() {
         return data.status === "Selesai";
     }).length;
 
-    // Menampilkan hasil ke Dashboard
+    // MEMPERBARUI KARTU DASHBOARD
     document.getElementById("total-laporan").textContent = total;
     document.getElementById("total-menunggu").textContent = menunggu;
     document.getElementById("total-diproses").textContent = diproses;
     document.getElementById("total-selesai").textContent = selesai;
+
+
+    // FUNGSI MEMBUAT BARIS TABEL
+    function tambahBaris(tabel, nilai) {
+        const baris = document.createElement("tr");
+
+        nilai.forEach(function(teks) {
+            const kolom = document.createElement("td");
+            kolom.textContent = teks;
+            baris.appendChild(kolom);
+        });
+
+        tabel.appendChild(baris);
+    }
+
+    function formatPersentase(jumlah) {
+        if (total === 0) {
+            return "0%";
+        }
+
+        return ((jumlah / total) * 100)
+            .toFixed(1)
+            .replace(".", ",") + "%";
+    }
+
+
+    // 1. REKAPITULASI KATEGORI
+    const tabelKategori = document.getElementById("tabel-kategori");
+
+    if (tabelKategori) {
+        tabelKategori.innerHTML = "";
+
+        const daftarKategori = {
+            "sampah": "Sampah Berserakan",
+            "saluran": "Saluran Air Tersumbat",
+            "fasilitas": "Fasilitas Rusak",
+            "penghijauan": "Penghijauan",
+            "lainnya": "Lainnya"
+        };
+
+        const jumlahKategori = {};
+
+        semuaLaporan.forEach(function(data) {
+            const kategoriAsli = String(data.kategori || "Lainnya").trim();
+            const kunci = kategoriAsli.toLowerCase();
+
+            const namaKategori =
+                daftarKategori[kunci] || kategoriAsli;
+
+            jumlahKategori[namaKategori] =
+                (jumlahKategori[namaKategori] || 0) + 1;
+        });
+
+        Object.values(daftarKategori).forEach(function(nama) {
+            const jumlah = jumlahKategori[nama] || 0;
+
+            tambahBaris(tabelKategori, [
+                nama,
+                jumlah,
+                formatPersentase(jumlah)
+            ]);
+        });
+
+        Object.keys(jumlahKategori).forEach(function(nama) {
+            if (!Object.values(daftarKategori).includes(nama)) {
+                const jumlah = jumlahKategori[nama];
+
+                tambahBaris(tabelKategori, [
+                    nama,
+                    jumlah,
+                    formatPersentase(jumlah)
+                ]);
+            }
+        });
+    }
+
+
+    // 2. PERKEMBANGAN PENANGANAN
+    const tabelStatus = document.getElementById("tabel-status");
+
+    if (tabelStatus) {
+        tabelStatus.innerHTML = "";
+
+        const daftarStatus = [
+            "Menunggu Penanganan",
+            "Sedang Diproses",
+            "Selesai"
+        ];
+
+        daftarStatus.forEach(function(status) {
+            const jumlah = semuaLaporan.filter(function(data) {
+                return data.status === status;
+            }).length;
+
+            tambahBaris(tabelStatus, [
+                status,
+                jumlah,
+                formatPersentase(jumlah)
+            ]);
+        });
+    }
+
+
+    // 3. ANALISIS PERSEBARAN LOKASI
+    const tabelLokasi = document.getElementById("tabel-lokasi");
+
+    if (tabelLokasi) {
+        tabelLokasi.innerHTML = "";
+
+        const jumlahLokasi = {};
+
+        semuaLaporan.forEach(function(data) {
+            const lokasi = String(
+                data.lokasi || "Tidak diketahui"
+            ).trim() || "Tidak diketahui";
+
+            jumlahLokasi[lokasi] =
+                (jumlahLokasi[lokasi] || 0) + 1;
+        });
+
+        const daftarLokasi = Object.entries(jumlahLokasi);
+
+        daftarLokasi.sort(function(a, b) {
+            return b[1] - a[1];
+        });
+
+        if (daftarLokasi.length === 0) {
+            tambahBaris(tabelLokasi, [
+                "Belum ada laporan",
+                "0"
+            ]);
+        } else {
+            daftarLokasi.forEach(function(item) {
+                tambahBaris(tabelLokasi, [
+                    item[0],
+                    item[1]
+                ]);
+            });
+        }
+    }
+
 }
+
 function perbaruiPenyimpanan() {
     const dataPenyimpanan = localStorage.getItem("laporanPEDULIIN") || "";
 

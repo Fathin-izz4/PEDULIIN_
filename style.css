@@ -523,3 +523,1274 @@ button {
     color: #20a36b !important;
     font-weight: bold;
 }
+
+/* =========================================
+   PEDULIIN - MODERN GREEN DASHBOARD
+   Desain tambahan tanpa mengubah fungsi
+========================================= */
+
+:root {
+    --primary: #198754;
+    --primary-dark: #146c43;
+    --primary-light: #e8f5ec;
+    --background: #f5f8f6;
+    --surface: #ffffff;
+    --text: #24352b;
+    --muted: #718078;
+    --border: #e3ebe5;
+    --shadow: 0 5px 20px rgba(31, 75, 48, 0.07);
+}
+
+/* DASAR HALAMAN */
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 28px;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    letter-spacing: -0.4px;
+}
+
+h1 {
+    color: var(--primary-dark);
+    font-size: 30px;
+    font-weight: 750;
+}
+
+h2 {
+    color: var(--text);
+    font-size: 23px;
+    font-weight: 700;
+}
+
+h3 {
+    color: var(--primary-dark);
+    font-weight: 650;
+}
+
+p {
+    color: var(--muted);
+}
+
+/* CONTAINER UTAMA */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 25px auto;
+    padding: 35px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+/* NAVBAR */
+.navbar {
+    padding: 12px 0 22px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.nav-links {
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    padding: 9px 15px;
+    border-radius: 9px;
+    color: var(--muted);
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-dark);
+    background: var(--primary-light);
+}
+
+/* TOMBOL */
+button,
+#ekspor-laporan {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+button:hover,
+#ekspor-laporan:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(25, 135, 84, 0.18);
+}
+
+/* BAGIAN DASHBOARD */
+.dashboard-section,
+.report-section,
+.tracking-section {
+    border-color: var(--border);
+}
+
+.dashboard-section {
+    margin-top: 35px;
+    padding-top: 30px;
+}
+
+.dashboard-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.dashboard-card {
+    background: linear-gradient(135deg, #f0f8f2, #ffffff);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--primary);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: 0.25s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 9px 22px rgba(31, 75, 48, 0.11);
+}
+
+.dashboard-card h3 {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.dashboard-card p {
+    font-size: 32px;
+    color: var(--primary-dark);
+    font-weight: 750;
+}
+
+/* FORM LAPORAN */
+.report-section {
+    margin-top: 35px;
+    padding-top: 30px;
+}
+
+.report-section form,
+#form-edit {
+    gap: 15px;
+}
+
+.report-section label,
+#form-edit label,
+.filter-peta label {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.report-section input,
+.report-section select,
+.report-section textarea,
+#form-edit input,
+#form-edit select,
+#form-edit textarea,
+.tracking-form input,
+.pencarian-laporan input,
+.filter-peta select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    background: #fbfdfb;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.report-section input:focus,
+.report-section select:focus,
+.report-section textarea:focus,
+#form-edit input:focus,
+#form-edit select:focus,
+#form-edit textarea:focus,
+.tracking-form input:focus,
+.pencarian-laporan input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.10);
+}
+
+/* KARTU LAPORAN */
+.kartu-laporan {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--primary);
+    border-radius: 14px;
+    padding: 22px;
+    margin-top: 18px;
+    box-shadow: var(--shadow);
+    transition: 0.2s ease;
+}
+
+.kartu-laporan:hover {
+    box-shadow: 0 8px 22px rgba(31, 75, 48, 0.10);
+}
+
+.kartu-laporan h3 {
+    color: var(--primary-dark);
+    font-size: 18px;
+}
+
+.kartu-laporan p {
+    line-height: 1.7;
+}
+
+/* PENCARIAN DAN PELACAKAN */
+.tracking-section {
+    padding: 30px 0;
+}
+
+.tracking-form {
+    flex-wrap: wrap;
+}
+
+.tracking-form input {
+    flex: 1;
+    min-width: 180px;
+}
+
+.pencarian-laporan input {
+    max-width: 100%;
+}
+
+/* PETA */
+.peta-section {
+    background: #f8fbf9;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+}
+
+.peta-section h3 {
+    color: var(--primary-dark);
+}
+
+#peta-laporan,
+#peta-pilih-lokasi {
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow: hidden;
+}
+
+.legenda-peta {
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.filter-peta {
+    margin-top: 20px;
+}
+
+/* PANEL ADMIN */
+#kelola-laporan .kartu-laporan {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--primary);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+}
+
+#kelola-laporan .kartu-laporan select {
+    background: #fbfdfb;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 12px;
+}
+
+/* STATUS LAPORAN */
+.status-menunggu {
+    color: #c27a15 !important;
+}
+
+.status-diproses {
+    color: #2879c7 !important;
+}
+
+.status-selesai {
+    color: #198754 !important;
+}
+
+/* POPUP DETAIL DAN EDIT */
+.detail-content {
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.detail-content h2 {
+    color: var(--primary-dark);
+}
+
+.tutup-detail {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+.tutup-detail:hover {
+    background: #d7eddd;
+    color: var(--primary-dark);
+    transform: none;
+}
+
+/* INFORMASI PENYIMPANAN */
+.info-penyimpanan {
+    background: #f1f8f3;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.info-penyimpanan h3 {
+    color: var(--primary-dark);
+}
+
+.progress-penyimpanan {
+    background: #dcebe0;
+}
+
+#bar-penyimpanan {
+    background: var(--primary);
+}
+
+/* ANIMASI HALUS */
+button,
+a,
+.kartu-laporan,
+.dashboard-card {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* RESPONSIVE TABLET DAN HP */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        padding: 20px;
+        margin: 12px auto;
+        border-radius: 15px;
+    }
+
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        gap: 7px;
+    }
+
+    .nav-links a {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-card {
+        padding: 20px;
+    }
+
+    .tracking-form {
+        flex-direction: column;
+    }
+
+    .tracking-form button {
+        width: 100%;
+    }
+
+    #peta-laporan {
+        height: 330px;
+    }
+
+    #peta-pilih-lokasi {
+        height: 280px;
+    }
+
+    .detail-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .dashboard-card p {
+        font-size: 27px;
+    }
+
+    .kartu-laporan {
+        padding: 16px;
+    }
+}
+/* BERANDA PEDULIIN */
+#beranda {
+    font-size: 42px;
+    font-weight: 800;
+    color: #146c43;
+    text-align: center;
+    margin-top: 65px;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+
+#beranda + p {
+    text-align: center;
+    font-size: 17px;
+    color: #718078;
+    margin-bottom: 55px;
+}
+
+#tentang {
+    font-size: 25px;
+    color: #146c43;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#tentang + ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+#tentang + ul li {
+    background: #f0f8f2;
+    border: 1px solid #e3ebe5;
+    border-left: 4px solid #198754;
+    border-radius: 12px;
+    padding: 20px;
+    color: #385345;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(31, 75, 48, 0.05);
+}
+
+@media (max-width: 768px) {
+    #beranda {
+        font-size: 30px;
+        margin-top: 40px;
+    }
+
+    #tentang + ul {
+        grid-template-columns: 1fr;
+    }
+}
+/* PENYEMPURNAAN KARTU DASHBOARD */
+.dashboard-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px 28px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #ffffff, #edf7f0);
+    border: 1px solid #dcebe1;
+    border-left: 5px solid #198754;
+    box-shadow: 0 6px 18px rgba(31, 75, 48, 0.07);
+}
+
+.dashboard-card h3 {
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #718078;
+}
+
+.dashboard-card p {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 800;
+    color: #146c43;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(31, 75, 48, 0.12);
+}
+
+.dashboard-section > h2 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.dashboard-section > p {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-card {
+        min-height: 100px;
+        padding: 20px;
+    }
+
+    .dashboard-card p {
+        font-size: 30px;
+    }
+}
+/* FORMULIR BUAT LAPORAN */
+.report-section {
+    background: #ffffff;
+    padding: 30px;
+    margin-top: 45px;
+    border: 1px solid #e3ebe5;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(31, 75, 48, 0.06);
+}
+
+.report-section h2 {
+    color: #146c43;
+    font-size: 25px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.report-section label {
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.report-section input,
+.report-section select,
+.report-section textarea {
+    background: #fbfdfb;
+    border: 1px solid #dce8df;
+    border-radius: 10px;
+    padding: 14px;
+    transition: 0.2s ease;
+}
+
+.report-section input:focus,
+.report-section select:focus,
+.report-section textarea:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.12);
+    outline: none;
+}
+
+.report-section button {
+    padding: 14px 22px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .report-section {
+        padding: 20px;
+    }
+}
+/* LACAK LAPORAN */
+.tracking-section {
+    background: #ffffff;
+    padding: 30px;
+    margin-top: 40px;
+    border: 1px solid #e3ebe5;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(31, 75, 48, 0.06);
+}
+
+.tracking-section h2 {
+    color: #146c43;
+    font-size: 25px;
+    margin-top: 0;
+}
+
+.tracking-section > p {
+    color: #718078;
+}
+
+.tracking-form {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.tracking-form input {
+    min-width: 0;
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #dce8df;
+    border-radius: 10px;
+    background: #fbfdfb;
+}
+
+.tracking-form input:focus {
+    outline: none;
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.12);
+}
+
+.tracking-form button {
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+#hasil-pencarian {
+    margin-top: 22px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #f3f9f5;
+}
+
+@media (max-width: 768px) {
+    .tracking-section {
+        padding: 20px;
+    }
+
+    .tracking-form {
+        flex-direction: column;
+    }
+
+    .tracking-form button {
+        width: 100%;
+    }
+}
+/* PETA PERSEBARAN LAPORAN */
+.peta-section {
+    background: #ffffff;
+    padding: 25px;
+    margin-top: 35px;
+    border: 1px solid #e3ebe5;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(31, 75, 48, 0.06);
+}
+
+.peta-section h2,
+.peta-section h3 {
+    color: #146c43;
+}
+
+.peta-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.peta-section p {
+    color: #718078;
+    line-height: 1.6;
+}
+
+#peta-laporan,
+#peta-pilih-lokasi {
+    border: 1px solid #dce8df;
+    border-radius: 13px;
+    overflow: hidden;
+}
+
+.legenda-peta {
+    background: #f7fbf8;
+    border: 1px solid #e3ebe5;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.item-legenda {
+    font-weight: 600;
+    color: #43594b;
+}
+
+.filter-peta {
+    background: #f7fbf8;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e3ebe5;
+}
+
+.filter-peta select {
+    background: white;
+    border: 1px solid #dce8df;
+    border-radius: 9px;
+    padding: 11px 14px;
+}
+
+@media (max-width: 768px) {
+    .peta-section {
+        padding: 18px;
+    }
+
+    #peta-laporan {
+        height: 330px;
+    }
+}
+
+/* =====================================
+   PEDULIIN - FINAL UI POLISH
+===================================== */
+
+/* DAFTAR LAPORAN */
+#daftar-laporan,
+#kelola-laporan {
+    margin-top: 25px;
+}
+
+#daftar-laporan .kartu-laporan,
+#kelola-laporan .kartu-laporan {
+    background: #ffffff;
+    border: 1px solid #e0ebe3;
+    border-left: 5px solid #198754;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 16px rgba(31, 75, 48, 0.06);
+    transition: 0.2s ease;
+}
+
+#daftar-laporan .kartu-laporan:hover,
+#kelola-laporan .kartu-laporan:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 22px rgba(31, 75, 48, 0.10);
+}
+
+.kartu-laporan img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+/* PANEL ADMIN */
+#kelola-laporan h2 {
+    color: #146c43;
+}
+
+#kelola-laporan button,
+#kelola-laporan select {
+    margin-top: 8px;
+}
+
+#kelola-laporan select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dce8df;
+    border-radius: 9px;
+    background: #fbfdfb;
+}
+
+/* STATUS LAPORAN */
+.status-menunggu {
+    color: #c27a15 !important;
+    font-weight: 700;
+}
+
+.status-diproses {
+    color: #2879c7 !important;
+    font-weight: 700;
+}
+
+.status-selesai {
+    color: #198754 !important;
+    font-weight: 700;
+}
+
+/* POPUP DETAIL */
+.detail-popup {
+    backdrop-filter: blur(5px);
+}
+
+.detail-content {
+    border: 1px solid #e3ebe5;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.16);
+}
+
+.detail-content h2 {
+    color: #146c43;
+}
+
+#isi-detail p {
+    color: #4d6255;
+}
+
+/* TOMBOL TUTUP POPUP */
+.tutup-detail {
+    background: #e8f5ec;
+    color: #146c43;
+}
+
+.tutup-detail:hover {
+    background: #d7eddd;
+    color: #146c43;
+}
+
+/* FORM EDIT */
+#form-edit {
+    gap: 15px;
+}
+
+#form-edit input,
+#form-edit select,
+#form-edit textarea {
+    background: #fbfdfb;
+    border: 1px solid #dce8df;
+    border-radius: 10px;
+    padding: 13px;
+}
+
+#form-edit input:focus,
+#form-edit select:focus,
+#form-edit textarea:focus {
+    outline: none;
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.10);
+}
+
+#pratinjau-edit-foto img {
+    border-radius: 12px;
+    border: 1px solid #e3ebe5;
+}
+
+/* INFORMASI PENYIMPANAN */
+.info-penyimpanan {
+    background: linear-gradient(135deg, #f0f8f2, #ffffff);
+    border: 1px solid #e0ebe3;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(31, 75, 48, 0.05);
+}
+
+.info-penyimpanan h3 {
+    color: #146c43;
+}
+
+.progress-penyimpanan {
+    height: 15px;
+    background: #dcebe0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#bar-penyimpanan {
+    background: linear-gradient(90deg, #198754, #43b978);
+    border-radius: 20px;
+}
+
+/* TOMBOL EKSPOR */
+#ekspor-laporan {
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(25, 135, 84, 0.15);
+}
+
+/* SEMUA TOMBOL */
+button {
+    transition: background 0.2s ease,
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        padding: 18px;
+    }
+
+    .detail-content {
+        padding: 22px;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+
+    #daftar-laporan .kartu-laporan,
+    #kelola-laporan .kartu-laporan {
+        padding: 17px;
+    }
+
+    .info-penyimpanan {
+        padding: 18px;
+    }
+
+    #ekspor-laporan {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .detail-content {
+        padding: 17px;
+    }
+
+    .kartu-laporan {
+        padding: 15px;
+    }
+}
+
+/* =========================================
+   PEDULIIN - PREMIUM UI ENHANCEMENT
+========================================= */
+
+/* 1. NAVBAR STICKY */
+.navbar {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    border: 1px solid #e3ebe5;
+    box-shadow: 0 8px 25px rgba(31, 75, 48, 0.08);
+}
+
+.nav-links a {
+    transition: color 0.2s ease, background 0.2s ease;
+    border-radius: 8px;
+    padding: 9px 12px;
+}
+
+.nav-links a:hover {
+    color: #146c43;
+    background: #e8f5ec;
+}
+
+/* 2. BERANDA */
+#beranda {
+    background: linear-gradient(135deg, #e8f5ec, #ffffff);
+    border: 1px solid #dcebe1;
+    border-radius: 22px;
+    padding: 55px 20px 20px;
+    margin-top: 45px;
+}
+
+#beranda + p {
+    margin-top: 0;
+    padding-bottom: 25px;
+}
+
+/* 3. KARTU DASHBOARD */
+.dashboard-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.dashboard-card::after {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    right: -20px;
+    top: -20px;
+    border-radius: 50%;
+    background: rgba(25, 135, 84, 0.08);
+}
+
+.dashboard-card:nth-child(2) {
+    border-left-color: #d99a35;
+}
+
+.dashboard-card:nth-child(3) {
+    border-left-color: #3986c9;
+}
+
+.dashboard-card:nth-child(4) {
+    border-left-color: #198754;
+}
+
+/* 4. FORM LAPORAN */
+.report-section,
+.tracking-section,
+.peta-section {
+    scroll-margin-top: 100px;
+}
+
+.report-section input,
+.report-section select,
+.report-section textarea,
+.tracking-form input {
+    transition: all 0.25s ease;
+}
+
+.report-section input:hover,
+.report-section select:hover,
+.report-section textarea:hover,
+.tracking-form input:hover {
+    border-color: #a9cdb5;
+}
+
+/* 5. BADGE STATUS */
+.status-menunggu,
+.status-diproses,
+.status-selesai {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.status-menunggu {
+    background: #fff4dc;
+    color: #a66a0c !important;
+}
+
+.status-diproses {
+    background: #e5f1ff;
+    color: #2469a8 !important;
+}
+
+.status-selesai {
+    background: #e2f5e8;
+    color: #146c43 !important;
+}
+
+/* 6. FOOTER */
+body::after {
+    content: "PEDULIIN — Bersama Menjaga Lingkungan Sekolah";
+    display: block;
+    margin-top: 65px;
+    padding: 28px 15px;
+    background: #146c43;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* ANIMASI HALUS */
+.dashboard-card,
+#daftar-laporan .kartu-laporan,
+#kelola-laporan .kartu-laporan {
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar {
+        top: 5px;
+    }
+
+    #beranda {
+        padding: 35px 15px 15px;
+        margin-top: 30px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    body::after {
+        margin-top: 40px;
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* BERANDA - HERO SECTION */
+.hero-section {
+    margin: 45px 0;
+    padding: 35px;
+    background: linear-gradient(145deg, #ffffff, #edf7f0);
+    border: 1px solid #dcebe1;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(31, 75, 48, 0.06);
+}
+
+.hero-section #beranda {
+    background: none;
+    border: none;
+    padding: 15px 10px;
+    margin: 0;
+    font-size: 38px;
+    line-height: 1.25;
+    text-align: left;
+}
+
+.hero-subtitle {
+    max-width: 800px;
+    line-height: 1.8;
+    color: #718078;
+    font-size: 16px;
+}
+
+.hero-description {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #dcebe1;
+}
+
+.hero-description h2 {
+    color: #146c43;
+    font-size: 23px;
+}
+
+.hero-description p,
+.hero-closing p {
+    color: #52675a;
+    line-height: 1.9;
+}
+
+.hero-closing {
+    margin-top: 25px;
+    padding: 22px;
+    background: #e4f3e8;
+    border-radius: 14px;
+}
+
+.hero-closing h3 {
+    color: #146c43;
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 22px;
+    }
+
+    .hero-section #beranda {
+        font-size: 29px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 125px;
+}
+
+#beranda,
+#tentang,
+#dashboard,
+#buat-laporan,
+#tracking {
+    scroll-margin-top: 125px;
+}
+
+.hero-section {
+    scroll-margin-top: 125px;
+}
+
+/* =================================
+   DASHBOARD ANALISIS PEDULIIN
+================================= */
+
+.analisis-dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 35px;
+}
+
+.analisis-card {
+    min-width: 0;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e3ebe5;
+    border-radius: 17px;
+    box-shadow: 0 5px 18px rgba(31, 75, 48, 0.06);
+}
+
+.analisis-card:last-child {
+    grid-column: 1 / -1;
+}
+
+.analisis-card h3 {
+    color: #146c43;
+    font-size: 17px;
+    margin: 0 0 20px;
+}
+
+.tabel-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.analisis-card table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.analisis-card th {
+    background: #e8f5ec;
+    color: #146c43;
+    padding: 14px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.analisis-card td {
+    padding: 14px;
+    border-bottom: 1px solid #edf1ee;
+    color: #52675a;
+    font-size: 14px;
+}
+
+.analisis-card tbody tr:hover {
+    background: #f5faf6;
+}
+
+.analisis-card tbody tr:last-child td {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .analisis-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .analisis-card:last-child {
+        grid-column: auto;
+    }
+
+    .analisis-card {
+        padding: 18px;
+    }
+}
